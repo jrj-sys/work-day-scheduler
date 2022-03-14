@@ -1,1 +1,11 @@
-# Work Day Scheduler Starter Code
+# Work Day Scheduler 
+
+![Image of the scheduler]()
+
+## Purpose: 
+
+## Made With:
+
+## Contributors: 
+
+

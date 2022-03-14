@@ -1,13 +1,13 @@
 // The current day is displayed at the top of the calendar
-var now = moment().format("dddd, MMMM Do");
-$( "#currentDay" ).html(now);
+var currentDay = moment().format("dddd, MMMM Do");
+$( "#currentDay" ).html(currentDay);
 
 // WHEN I click the save button for that time block
 // THEN the text for that event is saved in local storage
 $( ".save-btn" ).on("click", function() {
     // retrieve textarea user input & the current time 
-    var userText = $( ".description" ).val();
-    var currentHour = $( ".description" ).attr("id");
+    var userText = $(this).siblings(".description").val();
+    var currentHour = $(this).parent().attr("id");
     
     // send to localStorage 
     localStorage.setItem(currentHour, userText);
@@ -21,7 +21,7 @@ var timeColor = function () {
     var now = moment().hour();
     // loop over the time slots and add/remove color classes to update
     $( ".description" ).each(function () {
-        var blockCurrentTime = parseInt($(this).attr("id").split("h")[0]);
+        var blockCurrentTime = parseInt($(this).parent().attr("id").split("h")[0]);
         
         if (blockCurrentTime < now) {
             $(this).removeClass("future");
@@ -42,6 +42,14 @@ var timeColor = function () {
 
 // WHEN I refresh the page
 // THEN the saved events persist
-$(".description #09h").text(localStorage.getItem("09h"));
+$("#09h .description").text(localStorage.getItem("09h"));
+$("#10h .description").text(localStorage.getItem("10h"));
+$("#11h .description").text(localStorage.getItem("11h"));
+$("#12h .description").text(localStorage.getItem("12h"));
+$("#13h .description").text(localStorage.getItem("13h"));
+$("#14h .description").text(localStorage.getItem("14h"));
+$("#15h .description").text(localStorage.getItem("15h"));
+$("#16h .description").text(localStorage.getItem("16h"));
+$("#17h .description").text(localStorage.getItem("17h"));
 
 timeColor();
