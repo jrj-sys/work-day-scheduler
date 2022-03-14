@@ -21,7 +21,7 @@ var timeColor = function () {
     var now = moment().hour();
     // loop over the time slots and add/remove color classes to update
     $( ".description" ).each(function () {
-        var blockCurrentTime = parseInt($(this).parent().attr("id").split("h")[0]);
+        var blockCurrentTime = parseInt($(this).parent().attr("id"));
         
         if (blockCurrentTime < now) {
             $(this).removeClass("future");
@@ -51,5 +51,6 @@ $("#14h .description").text(localStorage.getItem("14h"));
 $("#15h .description").text(localStorage.getItem("15h"));
 $("#16h .description").text(localStorage.getItem("16h"));
 $("#17h .description").text(localStorage.getItem("17h"));
+
 
 timeColor();
